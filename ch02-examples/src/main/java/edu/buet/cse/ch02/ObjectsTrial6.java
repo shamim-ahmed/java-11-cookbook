@@ -20,5 +20,10 @@ public class ObjectsTrial6 {
     int hash2 = Objects.hash(person2.getName(), person2.getAge(), null);
     System.out.println(hash2);
     System.out.println(hash1 == hash2);
+
+    // the order of arguments matters
+    int hash3 = Objects.hash(person2.getName(), null, person2.getAge());
+    System.out.println(hash3);
+    System.out.println(hash2 == hash3);
   }
 }
