@@ -9,9 +9,22 @@ import java.util.Set;
  */
 public class ImmutableSetTrial {
   public static void main(String... args) {
-    // all arguments must be non null
     Set<String> wordSet = Set.of("This", "is", "a", "test");
-
     wordSet.forEach(System.out::println);
+    System.out.println();
+
+    // the set is immutable
+    try {
+      wordSet.add("world");
+    } catch (UnsupportedOperationException ex) {
+      System.err.println(ex);
+    }
+
+    // all arguments must be non null
+    try {
+      Set.of("Hello", "world", null);
+    } catch (NullPointerException ex) {
+      System.err.println(ex);
+    }
   }
 }

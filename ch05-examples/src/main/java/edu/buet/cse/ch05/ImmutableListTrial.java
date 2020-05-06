@@ -9,9 +9,22 @@ import java.util.List;
  */
 public class ImmutableListTrial {
   public static void main(String... args) {
-    // all arguments must be non null
     List<String> wordList = List.of("This", "is", "a", "test");
-
     wordList.forEach(System.out::println);
+    System.out.println();
+
+    // the list is immutable
+    try {
+      wordList.add("world");
+    } catch (UnsupportedOperationException ex) {
+      System.err.println(ex);
+    }
+
+    // all arguments must be non null
+    try {
+      List.of("Hello", "world", null);
+    } catch (NullPointerException ex) {
+      System.err.println(ex);
+    }
   }
 }
